@@ -1,0 +1,45 @@
+project:
+  name: etf_portfolio_lab
+
+data:
+  tickers:
+    - VWCE.MI
+    - AGGH.MI
+    - EIMI.MI
+    - INRG.MI
+    - XDWH.MI
+    - EXH1.DE
+    - XDW0.DE
+  benchmark: VWCE.MI
+  start_date: "2018-01-01"
+  end_date: "2026-01-01"
+  frequency: weekly
+  risk_free_rate: 0.02
+  trading_days_daily: 252
+  trading_days_weekly: 52
+
+optimization:
+  weight_min: 0.0
+  weight_max: 0.30
+
+backtest:
+  rebalance_frequency: monthly
+  transaction_cost_bps: 10
+  rolling_cov_window: 52
+
+ml:
+  forecast_horizon_periods: 4
+  tscv_splits: 5
+  ridge_alphas: [0.1, 1.0, 10.0]
+  random_forest:
+    n_estimators: 300
+    max_depth: 5
+    random_state: 42
+  xgboost:
+    enabled: true
+    n_estimators: 300
+    max_depth: 4
+    learning_rate: 0.05
+    subsample: 0.9
+    colsample_bytree: 0.8
+    random_state: 42
