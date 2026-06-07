@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+.python_packages/
+input/*.csv
+output/
+market_prices/
+historical_prices/
+*.xlsx
+*.xls
+portfolio-composition-*.csv
+.env
